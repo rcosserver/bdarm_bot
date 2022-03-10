@@ -49,7 +49,8 @@ def message(message):
     bot.send_message(message.chat.id, text1)
     time.sleep(2)
     bot.send_message(message.chat.id, text2)
-    bot.send_message(message.chat.id, "|")
+    time.sleep(1)
+    bot.send_message(message.chat.id, "Вы хотите сгенерить отчёт?")
 
 
 
