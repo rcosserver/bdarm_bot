@@ -40,17 +40,19 @@ w = observation.get_weather()
 temp = w.get_temperature('celsius')['temp']
 
 
-text1 = ('Привет, сегодня '+ day + ' ,' + today.strftime("%d") + ' ' + mount[mounth_real % 12] + ' ' + today.strftime("%Y") + ' г.')
+text1 = ('Сегодня '+ day + ' ,' + today.strftime("%d") + ' ' + mount[mounth_real % 12] + ' ' + today.strftime("%Y") + ' г.')
 text2 = ('Погода в Москве хорошая, ' + w.get_detailed_status()+ ' ' + str(round(temp)) + ' °C')
 
 
 @bot.message_handler(content_types=["text"])
 def message(message):
+    bot.send_message(message.chat.id, "Привет.")
+    time.sleep(1)
     bot.send_message(message.chat.id, text1)
     time.sleep(2)
     bot.send_message(message.chat.id, text2)
     time.sleep(1)
-    bot.send_message(message.chat.id, "Вы хотите сгенерить отчёт?")
+    bot.send_message(message.chat.id, "Вы хотите сгенерировать план на сегодня и отчёт за вчера?")
 
 
 
