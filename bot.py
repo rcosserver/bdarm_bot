@@ -3,7 +3,7 @@
 import pyowm
 import config
 import datetime
-import telebot
+import pyTelegramBotAPI
 import time
 
 
