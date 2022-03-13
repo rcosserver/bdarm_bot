@@ -3,8 +3,10 @@
 import pyowm
 import config
 import datetime
-import pyTelegramBotAPI
+import telebot
 import time
+
+from telebot import types
 
 
 from pyowm import OWM
@@ -46,30 +48,30 @@ text2 = ('Погода в Москве хорошая, ' + w.get_detailed_status
 
 @bot.message_handler(content_types=["text"])
 def message(message):
-    bot.send_message(message.chat.id, "Привет.")
-    time.sleep(1)
-    bot.send_message(message.chat.id, text1)
+    bot.send_message(message.chat.id, "Привет. Это генератор отчётов.")
     time.sleep(2)
-    bot.send_message(message.chat.id, text2)
+    bot.send_message(message.chat.id, text1)
     time.sleep(1)
-    bot.send_message(message.chat.id, "Вы хотите сгенерировать план на сегодня и отчёт за вчера?")
+    bot.send_message(message.chat.id, text2)
+    time.sleep(2)
 
+    markup = telebot.types.InlineKeyboardMarkup()
+    button1 = types.InlineKeyboardButton('ДА ', callback_data='1')
+    button2 = types.InlineKeyboardButton('НЕТ ', callback_data='2')
+    markup.row(button1, button2)
+    bot.send_message(message.from_user.id, f"Вы хотите сгенерировать план на сегодня и отчёт за вчера?", reply_markup=markup)
+
+@bot.callback_query_handler(func=lambda call: True)
+def callback_inline(call):
+    if call.data == '1':
+        bot.edit_message_reply_markup(message.chat.id, message_id = message.message_id-1, reply_markup = '')# удаляем кнопки у последнего сообщения
+        bot.send_message(call.message.chat.id, 'Продолжаем разговор')
+
+    elif call.data == '2':
+        bot.send_message(call.message.chat.id, 'Тогда ПОКА! Заполняй свой отчёт сам.')
+
+
+    
 
 
 bot.polling(none_stop=True, interval=0)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
