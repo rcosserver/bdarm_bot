@@ -64,9 +64,7 @@ def message(message):
 @bot.callback_query_handler(func=lambda call: True)
 def callback_inline(call):
     if call.data == '1':
-        del = telebot.types.ReplyKeyboardRemove()
-        bot.send_message(message.from_user.id, 'Вы хотите сгенерировать план на сегодня и отчёт за вчера?', reply_markup=del)
-        
+       
         bot.send_message(call.message.chat.id, 'Продолжаем разговор')
 
         
