@@ -64,7 +64,8 @@ def message(message):
 @bot.callback_query_handler(func=lambda call: True)
 def callback_inline(call):
     if call.data == '1':
-        bot.edit_message_reply_markup(message.chat.id, message_id = message.message_id-1, reply_markup = '')# удаляем кнопки у последнего сообщения
+       a = telebot.types.ReplyKeyboardRemove()
+            bot.send_message(message.from_user.id, 'Что', reply_markup=a)
         bot.send_message(call.message.chat.id, 'Продолжаем разговор')
 
     elif call.data == '2':
