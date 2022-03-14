@@ -64,7 +64,7 @@ def message(message):
 @bot.callback_query_handler(func=lambda call: True)
 def callback_inline(call):
     if call.data == '1':
-        hide_markup = telebot.types.ReplyKeyboardHide()
+        hide_markup = telebot.types.ReplyKeyboardRemove()
         bot.send_message(message.from_user.id, reply_markup=hide_markup)
         bot.send_message(call.message.chat.id, 'Продолжаем разговор')
 
