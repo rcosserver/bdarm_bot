@@ -398,8 +398,8 @@ def callback_inline(call):
 
 
 
-#   elif call.data == '2':
-#        bot.send_message(call.message.chat.id, 'Тогда ПОКА! Заполняй свой отчёт сам.')
+   elif call.data == '2':
+        bot.send_message(call.message.chat.id, 'Тогда ПОКА! Заполняй свой отчёт сам.')
 
 
 
