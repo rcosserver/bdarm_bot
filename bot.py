@@ -151,7 +151,7 @@ def message(message):
     
     
     
-            file = open(r"familiya.txt", "w")
+file = open(r"familiya.txt", "w")
 
         
         from datetime import date, timedelta
