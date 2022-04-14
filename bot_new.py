@@ -51,7 +51,7 @@ stations = ['Бейские Копи', 'Углесборочная', 'Барба
 
 work = ['Предрелизная проверка', 'Разработка ПО АРМ', 'АПК-ДК', 'Корректировка ПО АРМ', 'Разработка ДЦ', 'Разработка ПО АРМ', 'Корректировка ДЦ']
 
-text = ["""========================================================================================================================================================================================================
+text_one = ["""========================================================================================================================================================================================================
 = Поле "Объект:" должно содержать название станции/участка и название дороги                                                                                                                           =
 = Поле "Задача:" должно содержать номер 1-го связанного с задачей дефекта или текстовое описание при отсутствии дефекта, в последнем случае описание дополняется ссылкой на автора поставленной задачи =
 = Поле "%готовности:" должно содержать реальный процент готовности по указанной задаче                                                                                                                 =
@@ -62,7 +62,7 @@ text = ["""=====================================================================
 = Поле "Причина_неисполнения:" в случае превышения планируемых сроков или при наличии обстоятельств непреодолимой силы должно содержать описание причины                                               =
 ========================================================================================================================================================================================================"""]
 
-text2 = ["""========================================================================================================================================================================================================
+text_two = ["""========================================================================================================================================================================================================
 = Объект:                              = Задача:                        = %готовности: = %загрузки: = Дата_окончания: = Активность_тестов:  =   Причина_неисполнения:                                  =
 ========================================================================================================================================================================================================"""]
 
@@ -84,38 +84,44 @@ c2=str(int(round(random.randint(1, 100)/5.0)*5.0))
 c3=str(int(round(random.randint(1, 100)/5.0)*5.0))
 c4=str(int(round(random.randint(1, 100)/5.0)*5.0))
 
-d1=round(random.randint(1, 100)/5)*5
-d2=round(random.randint(1, 100)/5)*5
-d3=round(random.randint(1, 100)/5)*5
-d4=round(random.randint(1, 100)/5)*5
+#d1=round(random.randint(1, 100)/5)*5
+#d2=round(random.randint(1, 100)/5)*5
+#d3=round(random.randint(1, 100)/5)*5
+#d4=round(random.randint(1, 100)/5)*5
+
+
 
 #вычисляем случайное число в сумме не больше 100
 zadachi = 4
 schetchik = random.randint(1,zadachi)
 
 if schetchik == 1:
-    d1 = d1
-    d2 = round(random.randint(1, 100-d1)/5)*5
-    d3 = round(random.randint(1, d2) / 5) * 5
-    d4 = round(random.randint(1, d3) / 5) * 5
+    d1 = round(random.randint(0, 100)/5)*5
+    d2 = round(random.randint(0, 100-d1)/5)*5
+    d3 = round(random.randint(0, 100-d1-d2)/5)*5
+    d4 = (100-d1-d2-d3)
+    print(d1, d2, d3, d4)
 
 if schetchik == 2:
-    d2 = d2
-    d1 = round(random.randint(1, 100 - d2)/5)*5
-    d3 = round(random.randint(1, d1) / 5) * 5
-    d4 = round(random.randint(1, d3) / 5) * 5
+    d2 = round(random.randint(0, 100)/5)*5
+    d1 = round(random.randint(0, 100 - d2)/5)*5
+    d3 = round(random.randint(0, 100-d2-d1)/5)*5
+    d4 = (100-d2-d1-d3)
+    print(d1, d2, d3, d4)
 
 if schetchik == 3:
-    d3 = d3
-    d1 = round(random.randint(1, 100 - d3) / 5) * 5
-    d2 = round(random.randint(1, d1) / 5) * 5
-    d4 = round(random.randint(1, d2) / 5) * 5
+    d3 = round(random.randint(0, 100)/5)*5
+    d1 = round(random.randint(0, 100 - d3)/5)*5
+    d2 = round(random.randint(0, 100-d3-d1)/5)*5
+    d4 = (100-d3-d1-d2)
+    print(d1, d2, d3, d4)
 
 if schetchik == 4:
-    d4 = d4
-    d1 = round(random.randint(1, 100 - d4) / 5) * 5
-    d2 = round(random.randint(1, d1) / 5) * 5
-    d3 = round(random.randint(1, d2) / 5) * 5
+    d4 = round(random.randint(0, 100)/5)*5
+    d1 = round(random.randint(0, 100 - d4)/5)*5
+    d2 = round(random.randint(0, 100-d4-d1)/5)*5
+    d3 = (100-d4-d1-d2)
+    print(d1, d2, d3, d4)
 
 print (d1,d2,d3,d4)
 
@@ -316,15 +322,16 @@ text1 = ('Сегодня ' + day + ' ,' + today.strftime("%d") + ' ' + mount[mou
 text2 = ('Погода в Москве хорошая, ' + w.get_detailed_status() + ' ' + str(round(temp)) + ' °C')
 
 
+
+
 @bot.message_handler(content_types=["text"])
 def message(message):
     bot.send_message(message.chat.id, "Привет. Это генератор отчётов.")
-    time.sleep(2)
+    time.sleep(1)
     bot.send_message(message.chat.id, text1)
     time.sleep(1)
     bot.send_message(message.chat.id, text2)
-    time.sleep(2)
-
+    time.sleep(1)
     markup = telebot.types.InlineKeyboardMarkup()
     button1 = types.InlineKeyboardButton('ДА ', callback_data='1')
     button2 = types.InlineKeyboardButton('НЕТ ', callback_data='2')
@@ -340,18 +347,23 @@ def callback_inline(call):
         bot.send_message(call.message.chat.id, 'Продолжаем разговор')
         bot.send_message(call.message.chat.id, 'Генерю')
 
-        file = open(r"D:\familiya.txt", "w")
-
-        file.write("\n".join(text))
+        file = open("D:\\test.txt", "w")
+        file.write("\n".join(text_one))
         file.write("\nОтчёт за " + str(yesterday.strftime('%d.%m.%y')))
-        file.write("\n" + "\n".join(text2))
+        file.write("\n" + "\n".join(text_two))
         file.write("\n" + a1 + b1 + c1 + '%\t\t\t\t' + str(d1) + '%')
         file.write("\n" + a2 + b2 + c2 + '%\t\t\t\t' + str(d2) + '%')
         file.write("\n" + a3 + b3 + c3 + '%\t\t\t\t' + str(d3) + '%')
         file.write("\n" + a4 + b4 + c4 + '%\t\t\t\t' + str(d4) + '%')
 
         file.close()
-        check_file = os.path.isfile('D:\familiya.txt')  # True
+
+        f = open("D:\\test.txt", "rb")
+        bot.send_document(call.message.chat.id, f)
+
+        file.close()
+
+        check_file = os.path.isfile('D:\\test.txt')  # True
         print(check_file)
         if check_file == True:
             bot.send_message(call.message.chat.id, 'Отчёт создан')
