@@ -66,8 +66,15 @@ text_two = ["""=================================================================
 = Объект:                              = Задача:                        = %готовности: = %загрузки: = Дата_окончания: = Активность_тестов:  =   Причина_неисполнения:                                  =
 ========================================================================================================================================================================================================"""]
 
+text_tree = ["""========================================================================================================================================================================================================"""]
+
+
+
 from datetime import date, timedelta
 yesterday = date.today() - timedelta(days=1)
+saturday = date.today() + timedelta(days=2)
+sunday = date.today() + timedelta(days=1)
+
 
 a1=random.choice(stations)
 a2=random.choice(stations)
@@ -355,6 +362,18 @@ def callback_inline(call):
         file.write("\n" + a2 + b2 + c2 + '%\t\t\t\t' + str(d2) + '%')
         file.write("\n" + a3 + b3 + c3 + '%\t\t\t\t' + str(d3) + '%')
         file.write("\n" + a4 + b4 + c4 + '%\t\t\t\t' + str(d4) + '%')
+        file.write("\n")
+        file.write("\n")
+        file.write("\n".join(text_tree))
+
+        if day == 'суббота':
+            file.write("\nОтчёт за " + str(saturday.strftime('%d.%m.%y')) + "\n")
+        elif day == 'Воскресенье':
+            file.write("\nОтчёт за " + str(sunday.strftime('%d.%m.%y')) + "\n")
+        else:
+            file.write("\nОтчёт за " + str(today.strftime('%d.%m.%y')) + "\n")
+
+        file.write("\n".join(text_tree))
 
         file.close()
 
