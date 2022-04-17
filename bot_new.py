@@ -72,9 +72,12 @@ text_tree = ["""================================================================
 
 from datetime import date, timedelta
 yesterday = date.today() - timedelta(days=1)
+friday = date.today() + timedelta(days=3)
 saturday = date.today() + timedelta(days=2)
 sunday = date.today() + timedelta(days=1)
-
+saturday_otchet = date.today() - timedelta(days=1)
+sunday_otchet = date.today() - timedelta(days=2)
+monday = date.today() - timedelta(days=3)
 
 a1=random.choice(stations)
 a2=random.choice(stations)
@@ -356,7 +359,16 @@ def callback_inline(call):
 
         file = open("D:\\test.txt", "w")
         file.write("\n".join(text_one))
-        file.write("\nОтчёт за " + str(yesterday.strftime('%d.%m.%y')))
+
+        if day == 'суббота':
+            file.write("\nОтчёт за " + str(saturday_otchet.strftime('%d.%m.%y')) + "\n")
+        elif day == 'пятница':
+            file.write("\nОтчёт за " + str(sunday_otchet.strftime('%d.%m.%y')) + "\n")
+        elif day == 'понедельник':
+            file.write("\nОтчёт за " + str(monday.strftime('%d.%m.%y')) + "\n")
+        else:
+            file.write("\nОтчёт за " + str(today.strftime('%d.%m.%y')) + "\n")
+
         file.write("\n" + "\n".join(text_two))
         file.write("\n" + a1 + b1 + c1 + '%\t\t\t\t' + str(d1) + '%')
         file.write("\n" + a2 + b2 + c2 + '%\t\t\t\t' + str(d2) + '%')
@@ -367,11 +379,13 @@ def callback_inline(call):
         file.write("\n".join(text_tree))
 
         if day == 'суббота':
-            file.write("\nОтчёт за " + str(saturday.strftime('%d.%m.%y')) + "\n")
+            file.write("\nПлан на " + str(saturday.strftime('%d.%m.%y')) + "\n")
         elif day == 'Воскресенье':
-            file.write("\nОтчёт за " + str(sunday.strftime('%d.%m.%y')) + "\n")
+            file.write("\nПлан на " + str(sunday.strftime('%d.%m.%y')) + "\n")
+        elif day == 'пятница':
+            file.write("\nПлан на " + str(sunday.strftime('%d.%m.%y')) + "\n")
         else:
-            file.write("\nОтчёт за " + str(today.strftime('%d.%m.%y')) + "\n")
+            file.write("\nПлан на " + str(today.strftime('%d.%m.%y')) + "\n")
 
         file.write("\n".join(text_tree))
 
