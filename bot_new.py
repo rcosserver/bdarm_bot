@@ -84,6 +84,11 @@ a2=random.choice(stations)
 a3=random.choice(stations)
 a4=random.choice(stations)
 
+plan=random.sample([1,2,3,4],2)
+plan1=plan[0]
+plan2=plan[1]
+print(plan,plan1,plan2)
+
 b1=random.choice(work)
 b2=random.choice(work)
 b3=random.choice(work)
@@ -195,6 +200,14 @@ if b3 == 'Разработка ПО АРМ':
 if b4 == 'Разработка ПО АРМ':
    c4=  "" + c4
 
+if b1 == 'Корректировка ДЦ':
+   c1=  "\t\t\t\t\t\t\t" + c1
+if b2 == 'Корректировка ДЦ':
+   c2=  "\t\t\t\t\t\t\t" + c2
+if b3 == 'Корректировка ДЦ':
+   c3=  "\t\t\t\t\t\t\t" + c3
+if b4 == 'Корректировка ДЦ':
+   c4=  "\t\t\t\t\t\t\t" + c4
 
 if lena1 == 1 or lena1 == 2 or lena1 == 3:
     a1=  a1 + "\t\t\t\t\t\t\t\t\t"
@@ -388,6 +401,32 @@ def callback_inline(call):
             file.write("\nПлан на " + str(today.strftime('%d.%m.%y')) + "\n")
 
         file.write("\n".join(text_tree))
+
+        # добавляем одну станцию из отчёта в план
+        if plan1 == 1:
+            c1 == '100%'
+            file.write("\n" + a1 + b1 + c1 + '%\t\t\t\t' + str(d1) + '%')
+        elif plan1 == 2:
+            c2 == '100%'
+            file.write("\n" + a2 + b2 + c2 + '%\t\t\t\t' + str(d2) + '%')
+        elif plan1 == 3:
+            c3 == '100%'
+            file.write("\n" + a3 + b3 + c3 + '%\t\t\t\t' + str(d3) + '%')
+        elif plan1 == 4:
+            c4 == '100%'
+            file.write("\n" + a4 + b4 + c4 + '%\t\t\t\t' + str(d4) + '%')
+
+        # добавляем вторую станцию из отчёта в план
+        if plan2 == 1:
+            file.write("\n" + a1 + b1 + c1 + '%\t\t\t\t' + str(d1) + '%')
+        elif plan2 == 2:
+            file.write("\n" + a2 + b2 + c2 + '%\t\t\t\t' + str(d2) + '%')
+        elif plan2 == 3:
+            file.write("\n" + a3 + b3 + c3 + '%\t\t\t\t' + str(d3) + '%')
+        elif plan2 == 4:
+            file.write("\n" + a4 + b4 + c4 + '%\t\t\t\t' + str(d4) + '%')
+
+
 
         file.close()
 
