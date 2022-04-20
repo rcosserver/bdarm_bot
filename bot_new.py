@@ -83,7 +83,11 @@ a1=random.choice(stations)
 a2=random.choice(stations)
 a3=random.choice(stations)
 a4=random.choice(stations)
+a5=random.choice(stations)
+a6=random.choice(stations)
+a7=random.choice(stations)
 
+#генерим два случайных плана из отчёта
 plan=random.sample([1,2,3,4],2)
 plan1=plan[0]
 plan2=plan[1]
@@ -93,18 +97,22 @@ b1=random.choice(work)
 b2=random.choice(work)
 b3=random.choice(work)
 b4=random.choice(work)
+b5=random.choice(work)
+b6=random.choice(work)
+b7=random.choice(work)
 
 c1=str(int(round(random.randint(1, 100)/5.0)*5.0))
 c2=str(int(round(random.randint(1, 100)/5.0)*5.0))
 c3=str(int(round(random.randint(1, 100)/5.0)*5.0))
 c4=str(int(round(random.randint(1, 100)/5.0)*5.0))
+c5=str(int(round(random.randint(1, 100)/5.0)*5.0))
+c6=str(int(round(random.randint(1, 100)/5.0)*5.0))
+c7=str(int(round(random.randint(1, 100)/5.0)*5.0))
 
 #d1=round(random.randint(1, 100)/5)*5
 #d2=round(random.randint(1, 100)/5)*5
 #d3=round(random.randint(1, 100)/5)*5
 #d4=round(random.randint(1, 100)/5)*5
-
-
 
 #вычисляем случайное число в сумме не больше 100
 zadachi = 4
@@ -145,6 +153,8 @@ lena1=len(a1)
 lena2=len(a2)
 lena3=len(a3)
 lena4=len(a4)
+lena5=len(a5)
+lena6=len(a6)
 
 if b1 == 'Предрелизная проверка':
    c1=  "\t\t\t\t\t" + c1
@@ -154,6 +164,11 @@ if b3 == 'Предрелизная проверка':
    c3=  "\t\t\t\t\t" + c3
 if b4 == 'Предрелизная проверка':
    c4=  "\t\t\t\t\t" + c4
+if b5 == 'Предрелизная проверка':
+   c5=  "\t\t\t\t\t" + c5
+if b6 == 'Предрелизная проверка':
+   c6=  "\t\t\t\t\t" + c6
+
 
 if b1 == 'Разработка ПО АРМ':
    c1=  "\t\t\t\t\t\t" + c1
@@ -163,6 +178,10 @@ if b3 == 'Разработка ПО АРМ':
    c3=  "\t\t\t\t\t\t" + c3
 if b4 == 'Разработка ПО АРМ':
    c4=  "\t\t\t\t\t\t" + c4
+if b5 == 'Разработка ПО АРМ':
+   c5=  "\t\t\t\t\t\t" + c5
+if b6 == 'Разработка ПО АРМ':
+   c6=  "\t\t\t\t\t\t" + c6
 
 if b1 == 'АПК-ДК':
    c1=  "\t\t\t\t\t\t\t\t\t" + c1
@@ -172,6 +191,10 @@ if b3 == 'АПК-ДК':
    c3=  "\t\t\t\t\t\t\t\t\t" + c3
 if b4 == 'АПК-ДК':
    c4=  "\t\t\t\t\t\t\t\t\t" + c4
+if b5 == 'АПК-ДК':
+   c5=  "\t\t\t\t\t\t\t\t\t" + c5
+if b6 == 'АПК-ДК':
+   c6=  "\t\t\t\t\t\t\t\t\t" + c6
 
 if b1 == 'Корректировка ПО АРМ':
    c1=  "\t\t\t\t\t" + c1
@@ -181,6 +204,10 @@ if b3 == 'Корректировка ПО АРМ':
    c3=  "\t\t\t\t\t" + c3
 if b4 == 'Корректировка ПО АРМ':
    c4=  "\t\t\t\t\t" + c4
+if b5 == 'Корректировка ПО АРМ':
+   c5=  "\t\t\t\t\t" + c5
+if b6 == 'Корректировка ПО АРМ':
+   c6=  "\t\t\t\t\t" + c6
 
 if b1 == 'Разработка ДЦ':
    c1=  "\t\t\t\t\t\t\t" + c1
@@ -190,6 +217,10 @@ if b3 == 'Разработка ДЦ':
    c3=  "\t\t\t\t\t\t\t" + c3
 if b4 == 'Разработка ДЦ':
    c4=  "\t\t\t\t\t\t\t" + c4
+if b5 == 'Разработка ДЦ':
+   c5=  "\t\t\t\t\t\t\t" + c5
+if b6 == 'Разработка ДЦ':
+   c6=  "\t\t\t\t\t\t\t" + c6
 
 if b1 == 'Разработка ПО АРМ':
    c1=  "" + c1
@@ -199,15 +230,23 @@ if b3 == 'Разработка ПО АРМ':
    c3=  "" + c3
 if b4 == 'Разработка ПО АРМ':
    c4=  "" + c4
+if b5 == 'Разработка ПО АРМ':
+   c5=  "" + c5
+if b6 == 'Разработка ПО АРМ':
+   c6=  "" + c6
 
 if b1 == 'Корректировка ДЦ':
-   c1=  "\t\t\t\t\t\t\t" + c1
+   c1=  "\t\t\t\t\t\t" + c1
 if b2 == 'Корректировка ДЦ':
-   c2=  "\t\t\t\t\t\t\t" + c2
+   c2=  "\t\t\t\t\t\t" + c2
 if b3 == 'Корректировка ДЦ':
-   c3=  "\t\t\t\t\t\t\t" + c3
+   c3=  "\t\t\t\t\t\t" + c3
 if b4 == 'Корректировка ДЦ':
-   c4=  "\t\t\t\t\t\t\t" + c4
+   c4=  "\t\t\t\t\t\t" + c4
+if b5 == 'Корректировка ДЦ':
+   c5=  "\t\t\t\t\t\t" + c5
+if b6 == 'Корректировка ДЦ':
+   c6=  "\t\t\t\t\t\t" + c6
 
 if lena1 == 1 or lena1 == 2 or lena1 == 3:
     a1=  a1 + "\t\t\t\t\t\t\t\t\t"
@@ -310,6 +349,56 @@ if lena4 == 24 or lena4 == 25 or lena4 == 26 or lena4 == 27:
 if lena4 == 28 or lena4 == 29 or lena4 == 30 or lena4 == 31:
     a4=  a4 + "\t\t"
 
+#a5
+if lena5 == 1 or lena5 == 2 or lena5 == 3:
+    a5=  a5 + "\t\t\t\t\t\t\t\t\t"
+
+if lena5 == 4 or lena5 == 5 or lena5 == 6 or lena5 == 7:
+    a5=  a5 + "\t\t\t\t\t\t\t\t"
+
+if lena5 == 8 or lena5 == 9 or lena5 == 10 or lena5 == 11:
+    a5=  a5 + "\t\t\t\t\t\t\t"
+
+if lena5 == 12 or lena5 == 13 or lena5 == 14 or lena5 == 15:
+    a5=  a5 + "\t\t\t\t\t\t"
+
+if lena5 == 16 or lena5 == 17 or lena5 == 18 or lena5 == 19:
+    a5=  a5 + "\t\t\t\t\t"
+
+if lena5 == 20 or lena5 == 21 or lena5 == 22 or lena5 == 23:
+    a5=  a5 + "\t\t\t\t"
+
+if lena5 == 24 or lena5 == 25 or lena5 == 26 or lena5 == 27:
+    a5=  a5 + "\t\t\t"
+
+if lena5 == 28 or lena5 == 29 or lena5 == 30 or lena5 == 31:
+    a5=  a5 + "\t\t"
+
+
+#a6
+if lena6 == 1 or lena6 == 2 or lena6 == 3:
+    a6=  a6 + "\t\t\t\t\t\t\t\t\t"
+
+if lena6 == 4 or lena6 == 5 or lena6 == 6 or lena6 == 7:
+    a6=  a6 + "\t\t\t\t\t\t\t\t"
+
+if lena6 == 8 or lena6 == 9 or lena6 == 10 or lena6 == 11:
+    a6=  a6 + "\t\t\t\t\t\t\t"
+
+if lena6 == 12 or lena6 == 13 or lena6 == 14 or lena6 == 15:
+    a6=  a6 + "\t\t\t\t\t\t"
+
+if lena6 == 16 or lena6 == 17 or lena6 == 18 or lena6 == 19:
+    a6=  a6 + "\t\t\t\t\t"
+
+if lena6 == 20 or lena6 == 21 or lena6 == 22 or lena6 == 23:
+    a6=  a6 + "\t\t\t\t"
+
+if lena6 == 24 or lena6 == 25 or lena6 == 26 or lena6 == 27:
+    a6=  a6 + "\t\t\t"
+
+if lena6 == 28 or lena6 == 29 or lena6 == 30 or lena6 == 31:
+    a6=  a6 + "\t\t"
 
 
 
@@ -349,6 +438,13 @@ text2 = ('Погода в Москве хорошая, ' + w.get_detailed_status
 
 @bot.message_handler(content_types=["text"])
 def message(message):
+    users_id = message.chat.id
+    users_name = message.chat.first_name
+    timers = datetime.datetime.today().strftime("%d.%m.%Y %H:%M:%S")
+    doc = open('stat/stat.txt', 'a', encoding='utf-8')
+    doc.write(f'{users_id} : {users_name} : {timers} - start\n')
+    doc.close
+
     bot.send_message(message.chat.id, "Привет. Это генератор отчётов.")
     time.sleep(1)
     bot.send_message(message.chat.id, text1)
@@ -406,26 +502,45 @@ def callback_inline(call):
         if plan1 == 1:
             c1 == '100%'
             file.write("\n" + a1 + b1 + c1 + '%\t\t\t\t' + str(d1) + '%')
+            d5 = 100 - d1
         elif plan1 == 2:
             c2 == '100%'
             file.write("\n" + a2 + b2 + c2 + '%\t\t\t\t' + str(d2) + '%')
+            d5 = 100 - d2
         elif plan1 == 3:
             c3 == '100%'
             file.write("\n" + a3 + b3 + c3 + '%\t\t\t\t' + str(d3) + '%')
+            d5 = 100 - d3
         elif plan1 == 4:
             c4 == '100%'
             file.write("\n" + a4 + b4 + c4 + '%\t\t\t\t' + str(d4) + '%')
+            d5 = 100 - d4
 
         # добавляем вторую станцию из отчёта в план
         if plan2 == 1:
             file.write("\n" + a1 + b1 + c1 + '%\t\t\t\t' + str(d1) + '%')
+            d6 = 100 - d1
         elif plan2 == 2:
             file.write("\n" + a2 + b2 + c2 + '%\t\t\t\t' + str(d2) + '%')
+            d6 = 100 - d2
         elif plan2 == 3:
             file.write("\n" + a3 + b3 + c3 + '%\t\t\t\t' + str(d3) + '%')
+            d6 = 100 - d3
         elif plan2 == 4:
             file.write("\n" + a4 + b4 + c4 + '%\t\t\t\t' + str(d4) + '%')
+            d6 = 100 - d4
 
+
+        dd = int(abs((100 - d5 - d6) / 2))
+
+        #планы на новые станции
+        file.write("\n" + a5 + b5 + c5 + '%\t\t\t\t' + str(dd) + '%')
+        file.write("\n" + a6 + b6 + c6 + '%\t\t\t\t' + str(dd) + '%')
+
+        file.write("\n")
+        file.write("\n")
+        file.write("\n" + 'Замороженные объекты')
+        file.write("\n" + a7 + b7 + c7 + '%\t\t\t\t' + '0' + '%')
 
 
         file.close()
