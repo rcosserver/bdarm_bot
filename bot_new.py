@@ -470,13 +470,13 @@ def callback_inline(call):
         file.write("\n".join(text_one))
 
         if day == 'суббота':
-            file.write("\nОтчёт за " + str(saturday_otchet.strftime('%d.%m.%y')) + "\n")
+            file.write("\nОтчёт за " + str(saturday_otchet.strftime('%d.%m.%y')))
         elif day == 'пятница':
-            file.write("\nОтчёт за " + str(sunday_otchet.strftime('%d.%m.%y')) + "\n")
+            file.write("\nОтчёт за " + str(sunday_otchet.strftime('%d.%m.%y')))
         elif day == 'понедельник':
-            file.write("\nОтчёт за " + str(monday.strftime('%d.%m.%y')) + "\n")
+            file.write("\nОтчёт за " + str(monday.strftime('%d.%m.%y')))
         else:
-            file.write("\nОтчёт за " + str(today.strftime('%d.%m.%y')) + "\n")
+            file.write("\nОтчёт за " + str(today.strftime('%d.%m.%y')))
 
         file.write("\n" + "\n".join(text_two))
         file.write("\n" + a1 + b1 + c1 + '%\t\t\t\t' + str(d1) + '%')
@@ -492,7 +492,7 @@ def callback_inline(call):
         elif day == 'Воскресенье':
             file.write("\nПлан на " + str(sunday.strftime('%d.%m.%y')) + "\n")
         elif day == 'пятница':
-            file.write("\nПлан на " + str(sunday.strftime('%d.%m.%y')) + "\n")
+            file.write("\nПлан на " + str(friday.strftime('%d.%m.%y')) + "\n")
         else:
             file.write("\nПлан на " + str(today.strftime('%d.%m.%y')) + "\n")
 
