@@ -49,7 +49,7 @@ stations = ['Бейские Копи', 'Углесборочная', 'Барба
             'Шадринск', 'Алдан', 'Амга', 'Болотный', 'Денисовский', 'Кердем', 'Кюргелях', 'Нижний Бестях', 'Томмот']
 
 
-work = ['Предрелизная проверка', 'Разработка ПО АРМ', 'АПК-ДК', 'Корректировка ПО АРМ', 'Разработка ДЦ', 'Разработка ПО АРМ', 'Корректировка ДЦ']
+work = ['Предрелизная проверка\t\t\t\t\t', 'Разработка ПО АРМ\t\t\t\t\t\t', 'АПК-ДК\t\t\t\t\t\t\t\t\t', 'Корректировка ПО АРМ\t\t\t\t\t', 'Разработка ДЦ\t\t\t\t\t\t\t', 'Разработка ПО АРМ\t\t\t\t\t\t', 'Корректировка ДЦ\t\t\t\t\t\t']
 
 text_one = ["""========================================================================================================================================================================================================
 = Поле "Объект:" должно содержать название станции/участка и название дороги                                                                                                                           =
@@ -78,6 +78,7 @@ sunday = date.today() + timedelta(days=1)
 saturday_otchet = date.today() - timedelta(days=1)
 sunday_otchet = date.today() - timedelta(days=2)
 monday = date.today() - timedelta(days=3)
+tomorrow = date.today() + timedelta(days=1)
 
 a1=random.choice(stations)
 a2=random.choice(stations)
@@ -101,13 +102,13 @@ b5=random.choice(work)
 b6=random.choice(work)
 b7=random.choice(work)
 
-c1=str(int(round(random.randint(1, 100)/5.0)*5.0))
-c2=str(int(round(random.randint(1, 100)/5.0)*5.0))
-c3=str(int(round(random.randint(1, 100)/5.0)*5.0))
-c4=str(int(round(random.randint(1, 100)/5.0)*5.0))
-c5=str(int(round(random.randint(1, 100)/5.0)*5.0))
-c6=str(int(round(random.randint(1, 100)/5.0)*5.0))
-c7=str(int(round(random.randint(1, 100)/5.0)*5.0))
+c1=str(int(round(random.randint(1, 99)/5.0)*5.0))
+c2=str(int(round(random.randint(1, 99)/5.0)*5.0))
+c3=str(int(round(random.randint(1, 99)/5.0)*5.0))
+c4=str(int(round(random.randint(1, 99)/5.0)*5.0))
+c5=str(int(round(random.randint(1, 99)/5.0)*5.0))
+c6=str(int(round(random.randint(1, 99)/5.0)*5.0))
+c7=str(int(round(random.randint(1, 99)/5.0)*5.0))
 
 #d1=round(random.randint(1, 100)/5)*5
 #d2=round(random.randint(1, 100)/5)*5
@@ -156,97 +157,71 @@ lena4=len(a4)
 lena5=len(a5)
 lena6=len(a6)
 
-if b1 == 'Предрелизная проверка':
-   c1=  "\t\t\t\t\t" + c1
-if b2 == 'Предрелизная проверка':
-   c2=  "\t\t\t\t\t" + c2
-if b3 == 'Предрелизная проверка':
-   c3=  "\t\t\t\t\t" + c3
-if b4 == 'Предрелизная проверка':
-   c4=  "\t\t\t\t\t" + c4
-if b5 == 'Предрелизная проверка':
-   c5=  "\t\t\t\t\t" + c5
-if b6 == 'Предрелизная проверка':
-   c6=  "\t\t\t\t\t" + c6
+#if b1 == 'Предрелизная проверка':
+#   c1=  "\t\t\t\t\t" + c1
+#if b2 == 'Предрелизная проверка':
+#   c2=  "\t\t\t\t\t" + c2
+#if b3 == 'Предрелизная проверка':
+#   c3=  "\t\t\t\t\t" + c3
+#if b4 == 'Предрелизная проверка':
+#   c4=  "\t\t\t\t\t" + c4
+#if b5 == 'Предрелизная проверка':
+#   c5=  "\t\t\t\t\t" + c5
+#if b6 == 'Предрелизная проверка':
+#   c6=  "\t\t\t\t\t" + c6
+
+#if b1 or b2 or b3 or b4 or b5 or b6 == 'Предрелизная проверка':
+#    tab1=  "\t\t\t\t\t"
+#    tab2 = "\t\t\t\t\t"
+#    tab3 = "\t\t\t\t\t"
+#    tab4 = "\t\t\t\t\t"
+
+#if b1 or b2 or b3 or b4 or b5 or b6 == 'Разработка ПО АРМ':
+#    tab1=  "\t\t\t\t\t\t\t\t"
+#    tab2 = "\t\t\t\t\t\t\t\t"
+#    tab3 = "\t\t\t\t\t\t\t\t"
+#   tab4 = "\t\t\t\t\t\t\t\t"
+
+#if b1 or b2 or b3 or b4 or b5 or b6 == 'АПК-ДК':
+#    tab1=  "\t\t\t\t\t\t\t\t\t\t\t\t"
+#   tab2 = "\t\t\t\t\t\t\t\t\t\t\t\t"
+#   tab3 = "\t\t\t\t\t\t\t\t\t\t\t\t"
+#   tab4 = "\t\t\t\t\t\t\t\t\t\t\t\t"
+
+#if b1 or b2 or b3 or b4 or b5 or b6 == 'Корректировка ПО АРМ':
+#    tab1=  "\t\t\t\t\t\t"
+#   tab2 = "\t\t\t\t\t\t"
+#    tab3 = "\t\t\t\t\t\t"
+#    tab4 = "\t\t\t\t\t\t"
+
+#if b1 or b2 or b3 or b4 or b5 or b6 == 'Корректировка ПО АРМ':
+#   tab1=  "\t\t\t\t\t\t\t"
+#   tab2 = "\t\t\t\t\t\t\t"
+#    tab3 = "\t\t\t\t\t\t\t"
+#    tab4 = "\t\t\t\t\t\t\t"
+
+#if b1 or b2 or b3 or b4 or b5 or b6 == 'Корректировка ДЦ':
+#    tab1=  "\t\t\t\t\t\t"
+#    tab2 = "\t\t\t\t\t\t"
+#    tab3 = "\t\t\t\t\t\t"
+#    tab4 = "\t\t\t\t\t\t"
 
 
-if b1 == 'Разработка ПО АРМ':
-   c1=  "\t\t\t\t\t\t" + c1
-if b2 == 'Разработка ПО АРМ':
-   c2=  "\t\t\t\t\t\t" + c2
-if b3 == 'Разработка ПО АРМ':
-   c3=  "\t\t\t\t\t\t" + c3
-if b4 == 'Разработка ПО АРМ':
-   c4=  "\t\t\t\t\t\t" + c4
-if b5 == 'Разработка ПО АРМ':
-   c5=  "\t\t\t\t\t\t" + c5
-if b6 == 'Разработка ПО АРМ':
-   c6=  "\t\t\t\t\t\t" + c6
+#if b1 == 'Разработка ПО АРМ':
+#   c1=  "" + c1
+#if b2 == 'Разработка ПО АРМ':
+#   c2=  "" + c2
+#if b3 == 'Разработка ПО АРМ':
+#   c3=  "" + c3
+#if b4 == 'Разработка ПО АРМ':
+#   c4=  "" + c4
+#if b5 == 'Разработка ПО АРМ':
+#   c5=  "" + c5
+#if b6 == 'Разработка ПО АРМ':
+#   c6=  "" + c6
 
-if b1 == 'АПК-ДК':
-   c1=  "\t\t\t\t\t\t\t\t\t" + c1
-if b2 == 'АПК-ДК':
-   c2=  "\t\t\t\t\t\t\t\t\t" + c2
-if b3 == 'АПК-ДК':
-   c3=  "\t\t\t\t\t\t\t\t\t" + c3
-if b4 == 'АПК-ДК':
-   c4=  "\t\t\t\t\t\t\t\t\t" + c4
-if b5 == 'АПК-ДК':
-   c5=  "\t\t\t\t\t\t\t\t\t" + c5
-if b6 == 'АПК-ДК':
-   c6=  "\t\t\t\t\t\t\t\t\t" + c6
 
-if b1 == 'Корректировка ПО АРМ':
-   c1=  "\t\t\t\t\t" + c1
-if b2 == 'Корректировка ПО АРМ':
-   c2=  "\t\t\t\t\t" + c2
-if b3 == 'Корректировка ПО АРМ':
-   c3=  "\t\t\t\t\t" + c3
-if b4 == 'Корректировка ПО АРМ':
-   c4=  "\t\t\t\t\t" + c4
-if b5 == 'Корректировка ПО АРМ':
-   c5=  "\t\t\t\t\t" + c5
-if b6 == 'Корректировка ПО АРМ':
-   c6=  "\t\t\t\t\t" + c6
 
-if b1 == 'Разработка ДЦ':
-   c1=  "\t\t\t\t\t\t\t" + c1
-if b2 == 'Разработка ДЦ':
-   c2=  "\t\t\t\t\t\t\t" + c2
-if b3 == 'Разработка ДЦ':
-   c3=  "\t\t\t\t\t\t\t" + c3
-if b4 == 'Разработка ДЦ':
-   c4=  "\t\t\t\t\t\t\t" + c4
-if b5 == 'Разработка ДЦ':
-   c5=  "\t\t\t\t\t\t\t" + c5
-if b6 == 'Разработка ДЦ':
-   c6=  "\t\t\t\t\t\t\t" + c6
-
-if b1 == 'Разработка ПО АРМ':
-   c1=  "" + c1
-if b2 == 'Разработка ПО АРМ':
-   c2=  "" + c2
-if b3 == 'Разработка ПО АРМ':
-   c3=  "" + c3
-if b4 == 'Разработка ПО АРМ':
-   c4=  "" + c4
-if b5 == 'Разработка ПО АРМ':
-   c5=  "" + c5
-if b6 == 'Разработка ПО АРМ':
-   c6=  "" + c6
-
-if b1 == 'Корректировка ДЦ':
-   c1=  "\t\t\t\t\t\t" + c1
-if b2 == 'Корректировка ДЦ':
-   c2=  "\t\t\t\t\t\t" + c2
-if b3 == 'Корректировка ДЦ':
-   c3=  "\t\t\t\t\t\t" + c3
-if b4 == 'Корректировка ДЦ':
-   c4=  "\t\t\t\t\t\t" + c4
-if b5 == 'Корректировка ДЦ':
-   c5=  "\t\t\t\t\t\t" + c5
-if b6 == 'Корректировка ДЦ':
-   c6=  "\t\t\t\t\t\t" + c6
 
 if lena1 == 1 or lena1 == 2 or lena1 == 3:
     a1=  a1 + "\t\t\t\t\t\t\t\t\t"
@@ -479,10 +454,10 @@ def callback_inline(call):
             file.write("\nОтчёт за " + str(today.strftime('%d.%m.%y')))
 
         file.write("\n" + "\n".join(text_two))
-        file.write("\n" + a1 + b1 + c1 + '%\t\t\t\t' + str(d1) + '%')
-        file.write("\n" + a2 + b2 + c2 + '%\t\t\t\t' + str(d2) + '%')
-        file.write("\n" + a3 + b3 + c3 + '%\t\t\t\t' + str(d3) + '%')
-        file.write("\n" + a4 + b4 + c4 + '%\t\t\t\t' + str(d4) + '%')
+        file.write("\n" + a1 + b1 +  c1 + '%\t\t\t\t' + str(d1) + '%')
+        file.write("\n" + a2 + b2 +  c2 + '%\t\t\t\t' + str(d2) + '%')
+        file.write("\n" + a3 + b3 +  c3 + '%\t\t\t\t' + str(d3) + '%')
+        file.write("\n" + a4 + b4 +  c4 + '%\t\t\t\t' + str(d4) + '%')
         file.write("\n")
         file.write("\n")
         file.write("\n".join(text_tree))
@@ -494,40 +469,40 @@ def callback_inline(call):
         elif day == 'пятница':
             file.write("\nПлан на " + str(friday.strftime('%d.%m.%y')) + "\n")
         else:
-            file.write("\nПлан на " + str(today.strftime('%d.%m.%y')) + "\n")
+            file.write("\nПлан на " + str(tomorrow.strftime('%d.%m.%y')) + "\n")
 
         file.write("\n".join(text_tree))
 
         # добавляем одну станцию из отчёта в план
         if plan1 == 1:
             c1 == '100%'
-            file.write("\n" + a1 + b1 + c1 + '%\t\t\t\t' + str(d1) + '%')
+            file.write("\n" + a1 + b1 + '100%\t\t\t' + str(d1) + '%')
             d5 = 100 - d1
         elif plan1 == 2:
             c2 == '100%'
-            file.write("\n" + a2 + b2 + c2 + '%\t\t\t\t' + str(d2) + '%')
+            file.write("\n" + a2 + b2 + '100%\t\t\t' + str(d2) + '%')
             d5 = 100 - d2
         elif plan1 == 3:
             c3 == '100%'
-            file.write("\n" + a3 + b3 + c3 + '%\t\t\t\t' + str(d3) + '%')
+            file.write("\n" + a3 + b3 + '100%\t\t\t' + str(d3) + '%')
             d5 = 100 - d3
         elif plan1 == 4:
             c4 == '100%'
-            file.write("\n" + a4 + b4 + c4 + '%\t\t\t\t' + str(d4) + '%')
+            file.write("\n" + a4 + b4 + '100%\t\t\t' + str(d4) + '%')
             d5 = 100 - d4
 
         # добавляем вторую станцию из отчёта в план
         if plan2 == 1:
-            file.write("\n" + a1 + b1 + c1 + '%\t\t\t\t' + str(d1) + '%')
+            file.write("\n" + a1 + b1 + '100%\t\t\t' + str(d1) + '%')
             d6 = 100 - d1
         elif plan2 == 2:
-            file.write("\n" + a2 + b2 + c2 + '%\t\t\t\t' + str(d2) + '%')
+            file.write("\n" + a2 + b2 + '100%\t\t\t' + str(d2) + '%')
             d6 = 100 - d2
         elif plan2 == 3:
-            file.write("\n" + a3 + b3 + c3 + '%\t\t\t\t' + str(d3) + '%')
+            file.write("\n" + a3 + b3 + '100%\t\t\t' + str(d3) + '%')
             d6 = 100 - d3
         elif plan2 == 4:
-            file.write("\n" + a4 + b4 + c4 + '%\t\t\t\t' + str(d4) + '%')
+            file.write("\n" + a4 + b4 + '100%\t\t\t' + str(d4) + '%')
             d6 = 100 - d4
 
 
