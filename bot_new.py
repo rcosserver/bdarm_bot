@@ -13,7 +13,7 @@ from telebot import types
 
 from pyowm import OWM
 
-owm = pyowm.OWM('1884e6b6d5605fee686cf449ac8b1e54', language='RU')
+#owm = pyowm.OWM('1884e6b6d5605fee686cf449ac8b1e54', language='RU')
 bot = telebot.TeleBot(config.token)
 
 
@@ -156,6 +156,7 @@ lena3=len(a3)
 lena4=len(a4)
 lena5=len(a5)
 lena6=len(a6)
+lena7=len(a7)
 
 #if b1 == 'Предрелизная проверка':
 #   c1=  "\t\t\t\t\t" + c1
@@ -375,6 +376,30 @@ if lena6 == 24 or lena6 == 25 or lena6 == 26 or lena6 == 27:
 if lena6 == 28 or lena6 == 29 or lena6 == 30 or lena6 == 31:
     a6=  a6 + "\t\t"
 
+#a7
+if lena7 == 1 or lena7 == 2 or lena7 == 3:
+    a7=  a7 + "\t\t\t\t\t\t\t\t\t"
+
+if lena7 == 4 or lena7 == 5 or lena7 == 6 or lena7 == 7:
+    a7=  a7 + "\t\t\t\t\t\t\t\t"
+
+if lena7 == 8 or lena7 == 9 or lena7 == 10 or lena7 == 11:
+    a7=  a7 + "\t\t\t\t\t\t\t"
+
+if lena7 == 12 or lena7 == 13 or lena7 == 14 or lena7 == 15:
+    a7=  a7 + "\t\t\t\t\t\t"
+
+if lena7 == 16 or lena7 == 17 or lena7 == 18 or lena7 == 19:
+    a7=  a7 + "\t\t\t\t\t"
+
+if lena7 == 20 or lena7 == 21 or lena7 == 22 or lena7 == 23:
+    a7=  a7 + "\t\t\t\t"
+
+if lena7 == 24 or lena7 == 25 or lena7 == 26 or lena7 == 27:
+    a7=  a7 + "\t\t\t"
+
+if lena7 == 28 or lena7 == 29 or lena7 == 30 or lena7 == 31:
+    a7=  a7 + "\t\t"
 
 
 # Месяц
@@ -400,14 +425,14 @@ elif day == 'Saturday':
 elif day == 'Sunday':
     day = "Воскресенье"
 
-observation = owm.weather_at_place('Москва')
-w = observation.get_weather()
-temp = w.get_temperature('celsius')['temp']
+#observation = owm.weather_at_place('Москва')
+#w = observation.get_weather()
+#temp = w.get_temperature('celsius')['temp']
 
 text1 = ('Сегодня ' + day + ' ,' + today.strftime("%d") + ' ' + mount[mounth_real % 12] + ' ' + today.strftime(
     "%Y") + ' г.')
-text2 = ('Погода в Москве хорошая, ' + w.get_detailed_status() + ' ' + str(round(temp)) + ' °C')
-
+#text2 = ('Погода в Москве хорошая, ' + w.get_detailed_status() + ' ' + str(round(temp)) + ' °C')
+text2 = ('Погода в Москве хорошая, сколько то там градусов °C')
 
 
 
@@ -420,17 +445,17 @@ def message(message):
     doc.write(f'{users_id} : {users_name} : {timers} - start\n')
     doc.close
 
-    bot.send_message(message.chat.id, "Привет. Это генератор отчётов.")
+    bot.send_message(message.chat.id, f"Привет {users_name}! Это генератор отчётов.")
     time.sleep(1)
     bot.send_message(message.chat.id, text1)
     time.sleep(1)
     bot.send_message(message.chat.id, text2)
     time.sleep(1)
     markup = telebot.types.InlineKeyboardMarkup()
-    button1 = types.InlineKeyboardButton('ДА ', callback_data='1')
-    button2 = types.InlineKeyboardButton('НЕТ ', callback_data='2')
+    button1 = types.InlineKeyboardButton('✔ ДА ', callback_data='1')
+    button2 = types.InlineKeyboardButton('✖ НЕТ ', callback_data='2')
     markup.row(button1, button2)
-    bot.send_message(message.from_user.id, f"Вы хотите сгенерировать план на сегодня и отчёт за вчера?",
+    bot.send_message(message.from_user.id, f"Ты хочешь сгенерировать план на сегодня и отчёт за вчера?",
                      reply_markup=markup)
 
 
@@ -441,13 +466,11 @@ def callback_inline(call):
         bot.send_message(call.message.chat.id, 'Продолжаем разговор')
         bot.send_message(call.message.chat.id, 'Генерю')
 
-        file = open("D:\\test.txt", "w")
+        file = open(f"D:\\test.txt", "w")
         file.write("\n".join(text_one))
 
         if day == 'суббота':
             file.write("\nОтчёт за " + str(saturday_otchet.strftime('%d.%m.%y')))
-        elif day == 'пятница':
-            file.write("\nОтчёт за " + str(sunday_otchet.strftime('%d.%m.%y')))
         elif day == 'понедельник':
             file.write("\nОтчёт за " + str(monday.strftime('%d.%m.%y')))
         else:
@@ -515,22 +538,27 @@ def callback_inline(call):
         file.write("\n")
         file.write("\n")
         file.write("\n" + 'Замороженные объекты')
-        file.write("\n" + a7 + b7 + c7 + '%\t\t\t\t' + '0' + '%')
+        file.write("\n" + a7 + b7 + c7 + '%')
 
 
         file.close()
 
-        f = open("D:\\test.txt", "rb")
+        f = open(f"D:\\test.txt", "rb")
         bot.send_document(call.message.chat.id, f)
 
         file.close()
 
-        check_file = os.path.isfile('D:\\test.txt')  # True
+        check_file = os.path.isfile(f'D:\\test.txt')  # True
         print(check_file)
+
         if check_file == True:
             bot.send_message(call.message.chat.id, 'Отчёт создан')
         elif check_file == False:
             bot.send_message(call.message.chat.id, 'Отчёт не создан')
+
+
+        bot.send_message(call.message.chat.id, '⚡   Открывай отчёт в Notepad++   ⚡')
+
 
     elif call.data == '2':
         bot.send_message(call.message.chat.id, 'Тогда ПОКА! Заполняй свой отчёт сам.')
